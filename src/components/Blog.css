@@ -1,0 +1,272 @@
+/* src/components/Blog.css */
+
+/* ── SECTION ─────────────────────────────────── */
+.blog-section {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 5rem 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2.5rem;
+}
+
+/* ── HEADER ──────────────────────────────────── */
+.blog-header { text-align: center; }
+
+.blog-label {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.75rem;
+  letter-spacing: 3px;
+  color: #A78BFA;
+  text-transform: uppercase;
+  margin-bottom: 0.4rem;
+}
+
+.blog-title {
+  font-family: 'Syne', sans-serif;
+  font-weight: 800;
+  font-size: 2.5rem;
+  color: #E2E8F0;
+}
+
+.blog-title span {
+  background: linear-gradient(135deg, #A78BFA, #60A5FA);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* ── GRID ────────────────────────────────────── */
+.blog-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+  width: 100%;
+}
+
+/* ── CARD ────────────────────────────────────── */
+.blog-card {
+  background: #13132B;
+  border: 2px solid #2E2E5A;
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 3px 3px 0px #2E2E5A;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.22s ease,
+              border-color 0.22s ease,
+              box-shadow 0.22s ease;
+}
+
+.blog-card:hover {
+  transform: translateY(-5px);
+  border-color: #A78BFA;
+  box-shadow: 3px 3px 0px #A78BFA;
+}
+
+/* ── TOP BAR (article.exe style) ─────────────── */
+.card-bar {
+  padding: 10px 14px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 2px solid #2E2E5A;
+}
+
+.bar-experience { background: #1A1035; }
+.bar-blog       { background: #0D1A2E; }
+
+.bar-dots {
+  display: flex;
+  gap: 5px;
+  align-items: center;
+}
+
+.dot {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+.dot.r { background: #FF5F57; }
+.dot.y { background: #FEBC2E; }
+.dot.g { background: #28C840; }
+
+.bar-title {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.55rem;
+  letter-spacing: 2px;
+  color: #3D3D6B;
+  text-transform: uppercase;
+}
+
+/* ── CARD BODY ───────────────────────────────── */
+.card-body {
+  padding: 1.5rem 1.5rem 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  flex: 1;
+}
+
+/* type badge */
+.card-type-badge {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.58rem;
+  letter-spacing: 1.5px;
+  padding: 3px 10px;
+  border-radius: 4px;
+  display: inline-block;
+  width: fit-content;
+  text-transform: uppercase;
+  border: 1.5px solid;
+}
+
+.type-experience {
+  background: rgba(167, 139, 250, 0.12);
+  color: #C4B5FD;
+  border-color: rgba(167, 139, 250, 0.35);
+}
+.type-blog {
+  background: rgba(96, 165, 250, 0.12);
+  color: #93C5FD;
+  border-color: rgba(96, 165, 250, 0.35);
+}
+
+/* emoji + title row */
+.card-emoji-title {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.card-emoji {
+  font-size: 1.4rem;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.card-title-text {
+  font-family: 'Syne', sans-serif;
+  font-weight: 800;
+  font-size: 1rem;
+  color: #E2E8F0;
+  line-height: 1.4;
+}
+
+/* summary */
+.card-summary {
+  font-size: 0.84rem;
+  color: #64748B;
+  line-height: 1.75;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* ── DASHED DIVIDER (like Aditi) ─────────────── */
+.card-divider {
+  border: none;
+  border-top: 2px dashed #1E1E3F;
+  margin: 0;
+}
+
+/* ── TAGS ────────────────────────────────────── */
+.card-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  padding: 0.85rem 1.5rem;
+}
+
+.card-tag {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.6rem;
+  background: rgba(124, 58, 237, 0.08);
+  border: 1px solid rgba(167, 139, 250, 0.2);
+  color: #7C6AAA;
+  padding: 3px 9px;
+  border-radius: 4px;
+}
+
+/* ── FOOTER ──────────────────────────────────── */
+.card-footer {
+  padding: 0 1.5rem 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.card-meta {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.meta-date {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.62rem;
+  color: #94A3B8;
+  border: 1.5px solid #2E2E5A;
+  padding: 4px 10px;
+  border-radius: 4px;
+}
+
+.meta-read {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.58rem;
+  color: #475569;
+}
+
+/* read button */
+.read-btn {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.62rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  background: #E2E8F0;
+  color: #0D0D1A;
+  border: 2px solid #E2E8F0;
+  box-shadow: 2px 2px 0px #A78BFA;
+  padding: 8px 18px;
+  border-radius: 6px;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  white-space: nowrap;
+  transition: box-shadow 0.08s ease,
+              transform 0.08s ease,
+              background 0.15s ease;
+}
+
+.read-btn:hover {
+  background: #C4B5FD;
+  border-color: #C4B5FD;
+  box-shadow: 3px 3px 0px #A78BFA;
+}
+
+.read-btn:active {
+  box-shadow: 0px 0px 0px #A78BFA;
+  transform: translate(2px, 2px);
+}
+
+/* ── RESPONSIVE ──────────────────────────────── */
+@media (max-width: 768px) {
+  .blog-section { padding: 3rem 1.25rem; }
+  .blog-title   { font-size: 1.8rem; }
+  .blog-grid    { grid-template-columns: 1fr; }
+  .card-title-text { font-size: 0.95rem; }
+}
+
+@media (max-width: 480px) {
+  .blog-section    { padding: 2.5rem 1rem; }
+  .card-body       { padding: 1.25rem 1.25rem 1rem; }
+  .card-footer     { padding: 0 1.25rem 1.25rem; }
+  .card-tags       { padding: 0.75rem 1.25rem; }
+  .card-summary    { font-size: 0.8rem; }
+}

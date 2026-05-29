@@ -1,0 +1,59 @@
+/* src/App.css */
+/* ── All component-level styles go in their own CSS files ──
+   This file is for global layout only.                    */
+
+/* ── SECTION BASE ── */
+section {
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  padding: 1rem 1.5rem;
+}
+
+/* ── SECTION LABEL (// where I've studied) ── */
+.sec-label {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.65rem;
+  letter-spacing: 3px;
+  color: var(--lavender);
+  text-transform: uppercase;
+  margin-bottom: 0.75rem;
+}
+
+/* ── SECTION TITLE ── */
+.sec-title {
+  font-family: 'Syne', sans-serif;
+  font-weight: 800;
+  font-size: 2.5rem;
+  margin-bottom: 3rem;
+}
+
+.sec-title span {
+  background: linear-gradient(135deg, #A78BFA, #60A5FA);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* ── RESPONSIVE PADDING ── */
+@media (max-width: 768px) {
+  section {
+    padding: 3rem 1.25rem;
+  }
+
+  .sec-title {
+    font-size: 1.8rem;
+  }
+}
+
+.app-shell {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  padding: 0 1rem;
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  background-color: #050816;
+}

@@ -1,0 +1,62 @@
+.magic-bento-layer {
+  position: fixed;
+  inset: 0;
+  z-index: 5;
+  pointer-events: none;
+  overflow: hidden;
+  background-image:
+    radial-gradient(circle at var(--magic-x, 50%) var(--magic-y, 50%), rgba(255, 255, 255, 0.15) 0, transparent 240px),
+    radial-gradient(circle at 80% 20%, rgba(96, 165, 250, 0.18) 0, transparent 320px),
+    radial-gradient(circle at 15% 75%, rgba(167, 139, 250, 0.14) 0, transparent 340px);
+  transition: background-position 0.1s ease-out;
+}
+
+.magic-bento-layer::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.04), transparent 38%);
+}
+
+.magic-bento-spotlight {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at var(--magic-x, 50%) var(--magic-y, 50%), rgba(255, 255, 255, 0.18), transparent 250px);
+  filter: blur(12px);
+}
+
+.magic-bento-stars {
+  position: absolute;
+  inset: 0;
+}
+
+.magic-bento-star {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.95);
+  box-shadow: 0 0 16px rgba(255, 255, 255, 0.45);
+  opacity: 0.8;
+  animation-name: magic-bento-sparkle;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+}
+
+@keyframes magic-bento-sparkle {
+  0%, 100% {
+    opacity: 0.4;
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: translate3d(0, -6px, 0) scale(1.2);
+  }
+}
+
+
+@media (max-width: 900px) {
+  /* no additional layout rules needed for the Magic Bento overlay */
+}
+
+@media (max-width: 620px) {
+  /* no additional layout rules needed for the Magic Bento overlay */
+}
