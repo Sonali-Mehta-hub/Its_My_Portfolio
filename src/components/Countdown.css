@@ -1,0 +1,103 @@
+.countdown-root{
+  position:fixed;
+  inset:0;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:radial-gradient(circle at top left, rgba(59,130,246,0.28), transparent 25%),
+              radial-gradient(circle at bottom right, rgba(124,58,237,0.18), transparent 22%),
+              linear-gradient(180deg, rgba(10,16,34,0.98), rgba(4,8,20,0.99));
+  backdrop-filter: blur(6px);
+  z-index:9999;
+}
+.countdown-card{
+  position:relative;
+  overflow:visible;
+  background:rgba(7, 12, 32, 0.96);
+  padding:0;
+  border-radius:24px;
+  text-align:center;
+  color:var(--text-color, #fff);
+  border:1px solid rgba(255,255,255,0.12);
+  box-shadow:0 20px 80px rgba(2, 5, 20, 0.55);
+}
+/* animated background */
+.countdown-bg{
+  position:fixed;
+  inset:0;
+  background:radial-gradient(ellipse at center, rgba(58,123,213,0.35), rgba(0,0,0,0.6));
+  background-size:200% 200%;
+  animation: bgMove 8s ease-in-out infinite;
+  filter:blur(24px) saturate(120%);
+}
+
+.countdown-inner{
+  position:relative;
+  width:360px;
+  padding:48px 28px;
+  border-radius:18px;
+  background:linear-gradient(135deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02));
+  box-shadow: 0 12px 40px rgba(3,8,23,0.6);
+  margin:auto;
+}
+
+.countdown-number{
+  font-size:5rem;
+  margin:0;
+  letter-spacing:4px;
+  text-shadow: 0 6px 30px rgba(58,123,213,0.6);
+  background:linear-gradient(90deg,#fff, #b7e0ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: pop 0.9s cubic-bezier(.2,.9,.3,1) both;
+}
+
+.countdown-text{
+  margin:0.5rem 0 1rem;
+  opacity:0.9;
+  font-weight:500;
+}
+
+.countdown-actions{ display:flex; justify-content:center }
+
+.countdown-skip{
+  background:transparent;
+  border:1px solid rgba(255,255,255,0.08);
+  color:rgba(255,255,255,0.9);
+  padding:0.45rem 1rem;
+  border-radius:28px;
+  cursor:pointer;
+  backdrop-filter: blur(4px);
+  transition:transform .18s ease, opacity .18s ease;
+}
+.countdown-skip:hover{transform:translateY(-3px); opacity:1}
+
+.countdown-footer{
+  margin-top:12px;
+  font-size:0.9rem;
+  color:rgba(255,255,255,0.75);
+}
+
+@keyframes bgMove{
+  0%{background-position:0% 50%}
+  50%{background-position:100% 50%}
+  100%{background-position:0% 50%}
+}
+
+@keyframes pop{
+  0%{transform:scale(.4); opacity:0}
+  60%{transform:scale(1.06); opacity:1}
+  100%{transform:scale(1)}
+}
+
+/* reveal animation: slide the countdown splash upward and fade out */
+.countdown-root{
+  transition: transform 0.9s ease, opacity 0.9s ease;
+}
+
+.countdown-root.reveal{
+  pointer-events:none;
+  transform: translateY(-120%);
+  opacity: 0;
+}
+

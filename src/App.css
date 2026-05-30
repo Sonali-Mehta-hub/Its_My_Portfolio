@@ -45,6 +45,17 @@ section {
   }
 }
 
+.app-root {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.app-root.entered {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 .app-shell {
   position: relative;
   z-index: 1;
