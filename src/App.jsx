@@ -9,10 +9,12 @@ import Skill from "./components/Skill";
 import Projects from "./components/Projects";
 import Blog from "./components/Blog";
 import Countdown from "./components/Countdown";
+import Contact from "./components/Contact";
 
 export default function App() {
   const [showCountdown, setShowCountdown] = useState(true);
   const [appRevealed, setAppRevealed] = useState(false);
+  const [contactOpen, setContactOpen] = useState(false);
 
   return (
     <>
@@ -25,6 +27,7 @@ export default function App() {
           <Projects />
           <Blog />
           <Education />
+          <Contact open={contactOpen} onClose={() => setContactOpen(false)} />
         </div>
       </div>
 
