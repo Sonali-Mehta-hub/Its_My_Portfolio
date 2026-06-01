@@ -25,6 +25,7 @@ working on AI/ML projects. Currently exploring Machine Learning
   github:     "https://github.com/Sonali-Mehta-hub",
   linkedin:   "https://www.linkedin.com/in/sonali-kumari-451967275/",
   twitter:    "",
+  leetcode: "https://leetcode.com/YOUR_USERNAME", // ✏️ apna username daalo
   avatar:     "/Sonali.jpg",
 };
 

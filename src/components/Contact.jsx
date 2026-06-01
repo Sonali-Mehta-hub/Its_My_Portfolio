@@ -1,5 +1,6 @@
-import { useEffect } from "react";
-import { contact, about } from "../data";
+import {  useEffect } from "react";
+import { createPortal } from "react-dom";
+import { about } from "../data";
 import "./Contact.css";
 
 export default function Contact({ open, onClose }) {
@@ -17,18 +18,9 @@ export default function Contact({ open, onClose }) {
 
   return (
     <>
-      <section id="contact" className="contact-section">
-        <div className="contact-inner">
-          <p className="contact-label">// let's connect</p>
-          <h2 className="contact-title">Get in <span>Touch</span></h2>
-          <p className="contact-sub">{contact.subtext}</p>
-          <button className="contact-open-btn" onClick={() => onClose(false)}>
-            📮 Get in Touch
-          </button>
-        </div>
-      </section>
-
-      {open && (
+      
+      {/* ✅ createPortal — modal renders directly on document.body */}
+      {open && createPortal(
         <div
           className="contact-overlay"
           onClick={(e) => {
@@ -79,7 +71,8 @@ export default function Contact({ open, onClose }) {
             </button>
 
           </div>
-        </div>
+        </div>,
+        document.body
       )}
     </>
   );
