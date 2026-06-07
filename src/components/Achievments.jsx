@@ -1,6 +1,6 @@
 // src/components/Achievments.jsx
 
-import { useEffect } from "react";
+import { useEffect, useState, useCallback } from "react";
 import { createPortal } from "react-dom";
 import { certifications } from "../data";
 import "./Achievments.css";
@@ -16,14 +16,21 @@ const cardColors = [
 ];
 
 export default function Achievments({ open, onClose, onOpen }) {
+  const [selectedCert, setSelectedCert] = useState(null);
+
+  const handleModalClose = useCallback(() => {
+    setSelectedCert(null);
+    onClose();
+  }, [onClose]);
+
   // close on ESC
   useEffect(() => {
     const handler = (e) => {
-      if (e.key === "Escape") onClose();
+      if (e.key === "Escape") handleModalClose();
     };
     window.addEventListener("keydown", handler);
     return () => window.removeEventListener("keydown", handler);
-  }, [onClose]);
+  }, [handleModalClose]);
 
   // lock scroll
   useEffect(() => {
@@ -59,38 +66,96 @@ export default function Achievments({ open, onClose, onOpen }) {
           <div
             className="cert-overlay"
             onClick={(e) => {
-              if (e.target.classList.contains("cert-overlay")) onClose();
+              if (e.target.classList.contains("cert-overlay")) handleModalClose();
             }}
           >
             <div className="cert-modal">
               {/* heading */}
               <div className="cert-modal-head">
-                <div className="cert-modal-title">Certifications 🏆</div>
-                <button className="cert-close-x" onClick={onClose}>
-                  ✕
-                </button>
+                <div className="cert-modal-title">
+                  {selectedCert ? "Certificate Details" : "Certifications 🏆"}
+                </div>
+                <div className="cert-modal-actions">
+                  {selectedCert && (
+                    <button
+                      className="cert-back-btn"
+                      onClick={() => setSelectedCert(null)}
+                    >
+                      ← Back
+                    </button>
+                  )}
+                  <button className="cert-close-x" onClick={handleModalClose}>
+                    ✕
+                  </button>
+                </div>
               </div>
 
               {/* list */}
-              <div className="cert-list">
-                {certifications.map((cert, idx) => (
-                  <div
-                    key={cert.id}
-                    className="cert-item"
-                    style={{ background: cardColors[idx % cardColors.length] }}
-                  >
-                    <div className="cert-emoji">{cert.icon}</div>
-                    <div className="cert-info">
-                      <div className="cert-name">{cert.title}</div>
-                      <div className="cert-desc">{cert.desc}</div>
+              {selectedCert ? (
+                <div className="cert-detail">
+                  <div className="cert-detail-header">
+                    <div className="cert-detail-name">{selectedCert.title}</div>
+                    <div className="cert-detail-meta">
+                      {selectedCert.issuer} · {selectedCert.year}
                     </div>
-                    <div className="cert-year">{cert.year}</div>
                   </div>
-                ))}
-              </div>
+
+                  <div className="cert-preview">
+                    {selectedCert.pdf ? (
+                      <iframe
+                        src={selectedCert.pdf}
+                        title={`Certificate preview: ${selectedCert.title}`}
+                      />
+                    ) : (
+                      <div className="cert-image-fallback">
+                        Certificate preview is not available yet.
+                      </div>
+                    )}
+                  </div>
+
+                  <p className="cert-detail-desc">{selectedCert.desc}</p>
+
+                  {selectedCert.details?.length > 0 && (
+                    <ul className="cert-detail-list">
+                      {selectedCert.details.map((point, idx) => (
+                        <li key={idx}>{point}</li>
+                      ))}
+                    </ul>
+                  )}
+
+                  {selectedCert.pdf && (
+                    <a
+                      className="cert-view-link"
+                      href={selectedCert.pdf}
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      Open full certificate
+                    </a>
+                  )}
+                </div>
+              ) : (
+                <div className="cert-list">
+                  {certifications.map((cert, idx) => (
+                    <div
+                      key={cert.id}
+                      className="cert-item"
+                      style={{ background: cardColors[idx % cardColors.length] }}
+                      onClick={() => setSelectedCert(cert)}
+                    >
+                      <div className="cert-emoji">{cert.icon}</div>
+                      <div className="cert-info">
+                        <div className="cert-name">{cert.title}</div>
+                        <div className="cert-desc">{cert.desc}</div>
+                      </div>
+                      <div className="cert-year">{cert.year}</div>
+                    </div>
+                  ))}
+                </div>
+              )}
 
               {/* close button */}
-              <button className="cert-modal-close" onClick={onClose}>
+              <button className="cert-modal-close" onClick={handleModalClose}>
                 CLOSE
               </button>
             </div>

@@ -55,7 +55,16 @@ export default function Education() {
           <div
             key={edu.id}
             className={`sticky ${themes[idx].sticky}`}
+            role="button"
+            tabIndex={0}
+            aria-label={`Open ${edu.degree} book`}
             onClick={() => openBook(idx)}
+            onKeyDown={(e) => {
+              if (e.key === "Enter" || e.key === " ") {
+                e.preventDefault();
+                openBook(idx);
+              }
+            }}
           >
             <div className="pin" />
             <div className="s-year">{edu.year}</div>
