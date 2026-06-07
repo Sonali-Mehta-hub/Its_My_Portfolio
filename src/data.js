@@ -165,7 +165,7 @@ export const projects = [
     tags:       ["Python", "Scikit-learn", "Pandas", "NumPy", "IBM Watson"],
     live:       false,
     liveLink:   "",
-    githubLink: "https://github.com/Sonali-Mehta-hub/salary-predictor",
+    githubLink: "https://github.com/Sonali-Mehta-hub/Salary_Predictor",
     featured:   false,
   },
 ];
