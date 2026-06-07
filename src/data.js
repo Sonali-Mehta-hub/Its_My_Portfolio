@@ -180,7 +180,7 @@ export const certifications = [
     title:  "NPTEL Top 2%",
     issuer: "NPTEL",
     desc:   "Secured Top 2% among all learners in Fundamentals of Object-Oriented Programming course by NPTEL.",
-    year:   "2024",
+    year:   "2025",
     pdf:    "/Oops_certificate.pdf",
     details: [
       "Completed the Fundamentals of Object-Oriented Programming certification",
@@ -222,7 +222,7 @@ export const certifications = [
     title:  "GfG 160 Challenge",
     issuer: "GeeksforGeeks",
     desc:   "Completed GfG 160: 160 Days of Problem Solving — GeeksforGeeks.",
-    year:   "2025",
+    year:   "2024",
     pdf:    "/gfg_certificate.pdf",
     details: [
       "Completed 160 days of coding challenges",
@@ -236,7 +236,7 @@ export const certifications = [
     title:  "Web Dev Certification",
     issuer: "Apna College",
     desc:   "Completed full Web Development course certification from Apna College.",
-    year:   "2024",
+    year:   "2026",
     pdf:    "/development_certificate.pdf",
     details: [
       "Built responsive web pages using HTML, CSS, and JavaScript",
