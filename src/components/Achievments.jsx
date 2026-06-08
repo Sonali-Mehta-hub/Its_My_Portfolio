@@ -57,6 +57,19 @@ export default function Achievments({ open, onClose, onOpen }) {
           <button className="cert-open-btn" onClick={onOpen}>
             🏆 View All Certifications
           </button>
+          {/* prominent thank-you text (separate from marquee) */}
+          <div className="cert-thankyou" aria-hidden="false">
+            Thank you for visiting !!!
+          </div>
+
+          {/* marquee strip (opportunities) */}
+          <div className="cert-marquee" aria-hidden="true">
+            <div className="cert-marquee-track">
+              <span>
+                Open for Software Development Internship & Machine Learning opportunities
+              </span>
+            </div>
+          </div>
         </div>
       </section>
 
