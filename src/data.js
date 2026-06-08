@@ -264,7 +264,7 @@ export const blogs = [
     summary:  "How I made it to the finals of a Web3-focused national hackathon at BIT Mesra, Ranchi — the problem we solved, our tech stack, and what I learned competing against top teams.",
     date:     "2025",
     readTime: "6 min read",
-    link:     "https://medium.com/@sonali",   // ✏️ update with real link
+    link:     "https://medium.com/@sonalikumari1604/journey-to-innovate-a-thon-3-0-finale-ac59ba0c4a1d",   // ✏️ update with real link
     platform: "Medium",
     tags:     ["Hackathon", "Web3", "BIT Mesra"],
   },
@@ -276,7 +276,7 @@ export const blogs = [
     summary:  "What I learned during my virtual AI/ML internship at IBM SkillsBuild — from ML workflows to IBM Watson Studio and practical model building with Python.",
     date:     "2025",
     readTime: "6 min read",
-    link:     "https://medium.com/@sonali",   // ✏️ update with real link
+    link:     "https://medium.com/@sonalikumari1604/my-ai-ml-internship-at-ibm-skillsbuild-fe740f5c2abf",   // ✏️ update with real link
     platform: "Medium",
     tags:     ["ML", "IBM", "Internship"],
   },
