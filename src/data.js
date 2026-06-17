@@ -8,7 +8,7 @@ export const about = {
   name:       "Sonali Kumari",
   role:       "Full Stack Developer + ML Explorer",
   tagline:    "Build. Learn. Ship.",
-  bio1:       `3rd-year B.Tech CSE student at Amity University Jharkhand
+  bio1:       `Final Year B.Tech CSE student at Amity University Jharkhand
 with a CGPA of 9.3. I define myself as a Woman in STEM
 aspiring to build scalable software.`,
   bio2:       `I have hands-on experience in Full Stack Web Development
@@ -16,7 +16,7 @@ using the MERN stack and completed an internship at IBM SkillsBuild
 working on AI/ML projects. Currently exploring Machine Learning
 & Generative AI.`,
   location:   "Jharkhand, India",
-  status:     "3rd Year B.Tech CSE",
+  status:     "Final Year B.Tech CSE",
   cgpa:       "9.3 / 10",
   openTo:     "Software & ML Internships",
   resumeLink: "/Sonali_kumari_resume.pdf",
