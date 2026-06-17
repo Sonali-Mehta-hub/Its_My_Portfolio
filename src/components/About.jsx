@@ -102,7 +102,7 @@ export default function About({ onContactClick }) {
         <h1 className="about-hi">Hi people! 👋</h1>
 
         <p className="about-bio">
-          I am a <strong>3rd-year (pre-final) B.Tech CSE student</strong> at{" "}
+          I am a <strong>Final Year B.Tech CSE student</strong> at{" "}
           <strong>Amity University Jharkhand</strong>. I define myself as a{" "}
           <strong>Woman in STEM</strong> aspiring to build scalable software.
         </p>
