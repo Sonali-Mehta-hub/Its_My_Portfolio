@@ -363,15 +363,18 @@
 
 /* ── MARQUEE STRIP ─────────────────────────── */
 .cert-marquee {
-  margin-top: 1rem;
-  width: 100%;
+  margin-top: 0;
+  /* break out of centered container and span full viewport */
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
   overflow: hidden;
-  background: #FFEB3B; /* yellow strip */
-  border-radius: 999px;
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 0; /* remove horizontal padding */
-  padding-right: 0;
+  background: #8451db; /* yellow strip */
+  border-radius: 0; /* make the strip clearly span edge-to-edge */
+  padding-top: 16px;
+  padding-bottom: 16px;
+  padding-left: 1rem; /* small inner padding for text */
+  padding-right: 1rem;
 }
 .cert-marquee-track {
   display: inline-block;
@@ -380,7 +383,7 @@
   animation: marquee 18s linear infinite;
   font-family: 'Space Mono', monospace;
   color: #000; /* black text */
-  font-size: 0.95rem;
+  font-size: 1.5rem;
   font-weight: 700; /* bold */
 }
 .cert-marquee-track span { padding-right: 4rem; display: inline-block; }
@@ -412,4 +415,47 @@
 
 @media (max-width: 480px) {
   .cert-thankyou { font-size: 1.15rem; }
+}
+
+/* ── STRANDS OVERLAY LAYOUT ────────────────── */
+.cert-wrap {
+  position: relative;
+  overflow: visible;
+}
+
+.cert-inner {
+  position: relative;
+  z-index: 3; /* keep text above strands */
+}
+
+.cert-strands {
+  position: relative;
+  left: 0;
+  right: 0;
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+  height: 320px;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.cert-thankyou {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 58%;
+  z-index: 5;
+  font-size: 2.2rem;
+  letter-spacing: 1px;
+  mix-blend-mode: screen;
+  -webkit-text-stroke: 0.6px rgba(0,0,0,0.08);
+  text-shadow: 0 6px 20px rgba(96,165,250,0.12), 0 2px 8px rgba(0,0,0,0.15);
+  pointer-events: none;
+  white-space: nowrap;
+}
+
+@media (max-width: 680px) {
+  .cert-strands { height: 220px; }
+  .cert-thankyou { font-size: 1.6rem; }
 }

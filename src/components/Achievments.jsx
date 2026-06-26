@@ -4,6 +4,7 @@ import { useEffect, useState, useCallback } from "react";
 import { createPortal } from "react-dom";
 import { certifications } from "../data";
 import "./Achievments.css";
+import Strands from "./Strands";
 
 // ── card colors cycling ──────────────────────
 const cardColors = [
@@ -43,8 +44,9 @@ export default function Achievments({ open, onClose, onOpen }) {
   return (
     <>
       {/* ── SECTION — anchor for navbar scroll ── */}
-      <section id="certifications" className="cert-section">
-        <div className="cert-inner">
+      <div className="cert-wrap">
+        <section id="certifications" className="cert-section">
+          <div className="cert-inner">
           <p className="cert-label">// my achievements</p>
           <h2 className="cert-title">
             Certifi<span>cations</span>
@@ -57,21 +59,50 @@ export default function Achievments({ open, onClose, onOpen }) {
           <button className="cert-open-btn" onClick={onOpen}>
             🏆 View All Certifications
           </button>
-          {/* prominent thank-you text (separate from marquee) */}
-          <div className="cert-thankyou" aria-hidden="false">
-            Thank you for visiting !!!
-          </div>
+        </div>
+        </section>
 
-          {/* marquee strip (opportunities) */}
-          <div className="cert-marquee" aria-hidden="true">
-            <div className="cert-marquee-track">
-              <span>
-                Open for Software Development Internship & Machine Learning opportunities
-              </span>
-            </div>
+         {/* ── STRANDS ANIMATION — positioned to overlap the section ── */}
+        <div className="cert-strands" style={{ height: "320px" }}>
+          <div style={{ width: "100%", height: "100%", position: "relative" }}>
+            <Strands
+              colors={["#e49863", "#7C3AED", "#06B6D4"]}
+              count={3}
+              speed={0.5}
+              amplitude={1}
+              waviness={1}
+              thickness={0.7}
+              glow={2.6}
+              taper={3}
+              spread={1}
+              intensity={0.6}
+              saturation={2}
+              opacity={1}
+              scale={1.5}
+              glass={false}
+              refraction={1}
+              dispersion={1}
+              glassSize={1}
+              hueShift={0}
+            />
           </div>
         </div>
-      </section>
+
+        {/* prominent thank-you text — overlaps strands */}
+        <div className="cert-thankyou" aria-hidden="false">
+          Thank you for visiting !!!
+        </div>
+
+        {/* marquee strip (opportunities) — at the end */}
+        <div className="cert-marquee" aria-hidden="true">
+          <div className="cert-marquee-track">
+            <span>
+              Open for Software Development Internship & Machine Learning
+              opportunities
+            </span>
+          </div>
+        </div>
+      </div>
 
       {/* ── POPUP MODAL via portal ── */}
       {open &&
@@ -79,7 +110,8 @@ export default function Achievments({ open, onClose, onOpen }) {
           <div
             className="cert-overlay"
             onClick={(e) => {
-              if (e.target.classList.contains("cert-overlay")) handleModalClose();
+              if (e.target.classList.contains("cert-overlay"))
+                handleModalClose();
             }}
           >
             <div className="cert-modal">
@@ -153,7 +185,9 @@ export default function Achievments({ open, onClose, onOpen }) {
                     <div
                       key={cert.id}
                       className="cert-item"
-                      style={{ background: cardColors[idx % cardColors.length] }}
+                      style={{
+                        background: cardColors[idx % cardColors.length],
+                      }}
                       onClick={() => setSelectedCert(cert)}
                     >
                       <div className="cert-emoji">{cert.icon}</div>
